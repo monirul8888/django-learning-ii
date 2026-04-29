@@ -9,4 +9,24 @@ def machine_learning(request):
             {'name': 'Neural Network', 'accuracy': 95},
         ]
     }
-    return render(request, 'machineLearning.html', data)
+    return render(request, 'ml/machineLearning.html', data)
+
+def cnn(request):
+    data = {
+        'cnn_models': [
+            {'name': 'CNN Basic', 'accuracy': 88},
+            {'name': 'ResNet', 'accuracy': 94},
+            {'name': 'MobileNet', 'accuracy': 91},
+        ]
+    }
+    return render(request, 'ml/cnn.html', data)
+
+
+def ann(request):
+    data = {
+        'ann_models': [
+            {'name': 'Simple ANN', 'accuracy': 82},
+            {'name': 'Deep ANN', 'accuracy': 90},
+        ]
+    }
+    return render(request, 'ml/ann.html', data)

@@ -4,6 +4,8 @@ from .views import *
 
 urlpatterns = [
     
-    path("", machine_learning, name="machine_learning")
+    path("machine/", machine_learning, name="machine_learning"),
+    path("cnn/", cnn, name="cnn"),
+    path("ann/", ann, name="ann"),
   
 ]
