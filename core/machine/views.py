@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# Create your views here.
-def machine(request):
-    return HttpResponse("<h1> Django Tutorial </h1>")
-
-def deep_learning(request):
-    return HttpResponse("<h1> Django Tutorial (Deep Learning) </h1>")
-
-def about(request):
-    return HttpResponse("<h1> <b> Monirul Islam </b> </h1>")
+def machine_learning(request):
+    data = {
+        'models': [
+            {'name': 'Linear Regression', 'accuracy': 85},
+            {'name': 'Decision Tree', 'accuracy': 90},
+            {'name': 'Neural Network', 'accuracy': 95},
+        ]
+    }
+    return render(request, 'machineLearning.html', data)

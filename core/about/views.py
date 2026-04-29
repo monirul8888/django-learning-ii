@@ -3,8 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def about (request):
-    return HttpResponse("This is About APP About Page")
+def about(request):
+    return render(request, 'index.html', {'name': 'Monirul Islam'})
 
-def about1 (request):
-    return HttpResponse("This is About APP About Page 1")
+
