@@ -20,5 +20,7 @@ from machine.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path ("machine/", machine, name="machine")
+    path ("machine/", machine, name="machine"),
+    path("dp/", deep_learning, name = "deep_learning"),
+    path("about/", about , name = "about")
 ]
