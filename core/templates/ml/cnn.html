@@ -87,7 +87,7 @@
         <ul class="list-group">
             {% for model in cnn_models %}
                 <li class="list-group-item">
-                    {{ model.name }} - Accuracy: {{ model.accuracy }}%
+                    {{ model.name | capfirst }} - Accuracy: {{ model.accuracy }}%
                 </li>
             {% endfor %}
         </ul>

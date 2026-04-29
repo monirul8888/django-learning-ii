@@ -14,12 +14,12 @@ def machine_learning(request):
 def cnn(request):
     data = {
         'cnn_models': [
-            {'name': 'CNN Basic', 'accuracy': 88},
+            {'name': 'cnn Basic', 'accuracy': 88},
             {'name': 'ResNet', 'accuracy': 94},
             {'name': 'MobileNet', 'accuracy': 91},
         ]
     }
-    return render(request, 'ml/cnn.html', data)
+    return render(request, 'ml/cnn.html', context= data)
 
 
 def ann(request):
