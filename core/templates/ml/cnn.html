@@ -1,77 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNN | My Django App</title>
+{% extends "common/base.html" %}
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% block title %}CNN | My Django App{% endblock %}
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">My Django App</a>
-    </div>
-</nav>
+{% block content %}
 
 <!-- Header -->
-<div class="container mt-5 text-center">
+<div class="text-center mt-5">
     <h1>Convolutional Neural Network (CNN) 🧠</h1>
     <p class="lead">Understand how CNN works in Deep Learning</p>
 </div>
 
 <!-- About CNN -->
-<div class="container mt-4">
+<div class="mt-4">
     <h3>What is CNN?</h3>
     <p>
-        A Convolutional Neural Network (CNN) is a type of deep learning model
-        mainly used for image processing and computer vision tasks.
-        It can automatically detect important features from images.
+        A Convolutional Neural Network (CNN) is a deep learning model used for image processing and computer vision tasks.
     </p>
 </div>
 
 <!-- Key Components -->
-<div class="container mt-4">
+<div class="mt-4">
     <h3>Key Components</h3>
-    <div class="row">
+    <div class="row g-3">
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5>Convolution Layer</h5>
-                    <p>Extracts features from input images using filters.</p>
-                </div>
+            <div class="card shadow p-3">
+                <h5>Convolution Layer</h5>
+                <p>Extracts features from images using filters.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5>Pooling Layer</h5>
-                    <p>Reduces size and keeps important information.</p>
-                </div>
+            <div class="card shadow p-3">
+                <h5>Pooling Layer</h5>
+                <p>Reduces image size and keeps important data.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5>Fully Connected Layer</h5>
-                    <p>Used for final classification or prediction.</p>
-                </div>
+            <div class="card shadow p-3">
+                <h5>Fully Connected Layer</h5>
+                <p>Used for final classification.</p>
             </div>
         </div>
 
     </div>
 </div>
 
-<!-- Example Applications -->
-<div class="container mt-5">
+<!-- Applications -->
+<div class="mt-5">
     <h3>Applications of CNN</h3>
-    <ul class="list-group">
+    <ul class="list-group shadow-sm">
         <li class="list-group-item">Image Classification</li>
         <li class="list-group-item">Face Recognition</li>
         <li class="list-group-item">Object Detection</li>
@@ -79,27 +58,22 @@
     </ul>
 </div>
 
-<!-- Optional Dynamic Section -->
-<div class="container mt-5">
+<!-- Dynamic Section -->
+<div class="mt-5 mb-5">
     <h3>Sample CNN Models</h3>
 
     {% if cnn_models %}
         <ul class="list-group">
             {% for model in cnn_models %}
-                <li class="list-group-item">
-                    {{ model.name | capfirst }} - Accuracy: {{ model.accuracy }}%
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{{ model.name|capfirst }}</span>
+                    <span class="badge bg-primary">{{ model.accuracy }}%</span>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No CNN models available.</p>
+        <p class="text-muted">No CNN models available.</p>
     {% endif %}
 </div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>© 2026 My Django App</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}

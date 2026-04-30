@@ -1,66 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANN | My Django App</title>
+{% extends "common/base.html" %}
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% block title %}ANN Page{% endblock %}
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">My Django App</a>
-    </div>
-</nav>
+{% block content %}
 
 <!-- Header -->
-<div class="container mt-5 text-center">
-    <h1>Artificial Neural Network (ANN) 🧠</h1>
-    <p class="lead">Basic concept of neural networks</p>
+<div class="text-center mt-5">
+    <h1 class="fw-bold">Artificial Neural Network (ANN) 🧠</h1>
+    <p class="lead text-muted">Basic concept of neural networks</p>
 </div>
 
-<!-- About ANN -->
-<div class="container mt-4">
-    <h3>What is ANN?</h3>
-    <p>
-        Artificial Neural Network (ANN) is a machine learning model inspired by the human brain.
-        It consists of layers of neurons that process data and learn patterns.
-    </p>
+<!-- About -->
+<div class="mt-5">
+    <h3 class="mb-3">What is ANN?</h3>
+    <div class="card shadow-sm p-3">
+        <p class="mb-0">
+            Artificial Neural Network (ANN) is a machine learning model inspired by the human brain.
+            It consists of layers of neurons that process data and learn patterns.
+        </p>
+    </div>
 </div>
 
 <!-- Structure -->
-<div class="container mt-4">
-    <h3>ANN Structure</h3>
-    <div class="row">
+<div class="mt-5">
+    <h3 class="mb-4">ANN Structure</h3>
+    <div class="row g-4">
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body text-center">
-                    <h5>Input Layer</h5>
-                    <p>Receives input data.</p>
-                </div>
+            <div class="card shadow text-center p-3">
+                <h5 class="fw-bold">Input Layer</h5>
+                <p class="text-muted">Receives input data.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body text-center">
-                    <h5>Hidden Layer</h5>
-                    <p>Processes and transforms data.</p>
-                </div>
+            <div class="card shadow text-center p-3">
+                <h5 class="fw-bold">Hidden Layer</h5>
+                <p class="text-muted">Processes and transforms data.</p>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body text-center">
-                    <h5>Output Layer</h5>
-                    <p>Produces final result.</p>
-                </div>
+            <div class="card shadow text-center p-3">
+                <h5 class="fw-bold">Output Layer</h5>
+                <p class="text-muted">Produces final result.</p>
             </div>
         </div>
 
@@ -68,9 +51,9 @@
 </div>
 
 <!-- Applications -->
-<div class="container mt-5">
-    <h3>Applications of ANN</h3>
-    <ul class="list-group">
+<div class="mt-5">
+    <h3 class="mb-3">Applications of ANN</h3>
+    <ul class="list-group shadow-sm">
         <li class="list-group-item">Prediction & Forecasting</li>
         <li class="list-group-item">Speech Recognition</li>
         <li class="list-group-item">Fraud Detection</li>
@@ -78,27 +61,22 @@
     </ul>
 </div>
 
-<!-- Optional Dynamic Section -->
-<div class="container mt-5">
-    <h3>Sample ANN Models</h3>
+<!-- Dynamic Data -->
+<div class="mt-5 mb-5">
+    <h3 class="mb-3">Sample ANN Models</h3>
 
     {% if ann_models %}
-        <ul class="list-group">
+        <ul class="list-group shadow-sm">
             {% for model in ann_models %}
-                <li class="list-group-item">
-                    {{ model.name }} - Accuracy: {{ model.accuracy }}%
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>{{ model.name }}</span>
+                    <span class="badge bg-success">{{ model.accuracy }}%</span>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No ANN models available.</p>
+        <div class="alert alert-warning">No ANN models available.</div>
     {% endif %}
 </div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-3 mt-5">
-    <p>© 2026 My Django App</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}
